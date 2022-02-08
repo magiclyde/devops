@@ -1,0 +1,25 @@
+[Unit]
+Description=etcd
+Documentation=https://github.com/etcd-io/etcd
+
+[Service]
+Type=notify
+Restart=always
+RestartSec=5s
+LimitNOFILE=40000
+TimeoutStartSec=0
+ExecStart=/usr/local/bin/etcd --name etcd_62 \
+    --data-dir /data/etcd_62 \
+    --listen-client-urls http://192.168.11.62:2379,http://127.0.0.1:2379 \
+    --advertise-client-urls http://192.168.11.62:2379 \
+    --listen-peer-urls http://192.168.11.62:2380 \
+    --initial-advertise-peer-urls http://192.168.11.62:2380 \
+    --initial-cluster etcd_52=http://192.168.11.52:2380,etcd_59=http://192.168.11.59:2380,etcd_62=http://192.168.11.62:2380 \
+    --initial-cluster-token etcd-cluster \
+    --initial-cluster-state new \
+    --log-level info \
+    --logger zap \
+    --log-outputs stderr
+
+[Install]
+WantedBy=multi-user.target
