@@ -1,0 +1,15 @@
+[Unit]
+Description=NSQAdmin v1.2.1
+After=network.target
+
+[Service]
+Type=simple
+KillMode=process
+Restart=on-failure
+RestartSec=10s
+User=root
+ExecStart=/usr/local/bin/nsqadmin -http-address 127.0.0.1:4171 -lookupd-http-address 127.0.0.1:4161
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
