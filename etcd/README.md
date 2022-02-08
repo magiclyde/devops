@@ -2,7 +2,7 @@
 see https://etcd.io/docs/v3.4/op-guide/clustering/
 
 
-### Prelude
+### Overview
 
 |name |address|
 |------------ | -------------|
@@ -11,7 +11,7 @@ see https://etcd.io/docs/v3.4/op-guide/clustering/
 |etcd_62| 192.168.11.62|
 
 
-### Installation
+### Prelude
 see https://github.com/etcd-io/etcd/releases
 
 
