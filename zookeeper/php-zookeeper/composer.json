@@ -1,0 +1,5 @@
+{
+    "require": {
+        "symfony/lock": "^5.4"
+    }
+}
