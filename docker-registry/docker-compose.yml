@@ -1,0 +1,12 @@
+version: "3.6"
+services:
+  gitlab:
+    image: registry
+    container_name: registry
+    hostname: "registry.magiclyde.com"
+    restart: always
+    privileged: true
+    ports:
+      - "5000:5000"
+    volumes:
+      - /data/registry:/var/lib/registry
