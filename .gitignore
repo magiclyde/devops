@@ -12,3 +12,9 @@
 *.log
 
 vendor
+
+
+gitea/docker-rootless/config
+gitea/docker-rootless/data
+gitea/docker-rootless/mysql
+
