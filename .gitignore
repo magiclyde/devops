@@ -18,3 +18,9 @@ gitea/docker-rootless/config
 gitea/docker-rootless/data
 gitea/docker-rootless/mysql
 
+
+gitlab/docker/data
+gitlab/docker/log
+gitlab/docker/config
+gitlab/docker/root_password.txt
+

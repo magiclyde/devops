@@ -1,0 +1,20 @@
+## https://docs.gitlab.com/omnibus/docker/
+version: "3.6"
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:12.10.3-ce.0
+    container_name: mygitlab
+    hostname: "mycode.com"
+    restart: always
+    ports:
+      - "8022:22"
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./data:/var/opt/gitlab
+      - ./log:/var/log/gitlab
+      - ./config:/etc/gitlab
+      - ./gitlab.rb:/omnibus_config.rb
+    environment:
+      GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
+    shm_size: "1024m"
