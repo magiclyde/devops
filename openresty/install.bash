@@ -18,6 +18,5 @@ patch -p1 < /tmp/ngx_http_proxy_connect_module/patch/proxy_connect_rewrite_1018.
 cd /tmp/openresty-$VERSION/
 ./configure --with-http_stub_status_module --with-http_v2_module --add-module=/tmp/ngx_http_proxy_connect_module
 make
-/tmp/openresty-1.19.3.1/build/nginx-1.19.3/objs/nginx -V
+/tmp/openresty-$VERSION/build/nginx-$BUNDLE_VERSION/objs/nginx -V
 #sudo make install
-
