@@ -1,3 +1,10 @@
+# install ffmpeg on ubuntu 20.04
+
+### 安装依赖
+
+`sudo apt install libunistring-dev libaom-dev libdav1d-dev`
+
+
 ### 编译安装
 
 ```
@@ -21,4 +28,5 @@ ldconfig
 ### refer
 
 - https://zhuanlan.zhihu.com/p/80895966
+- https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
 
