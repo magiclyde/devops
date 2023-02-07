@@ -2,13 +2,15 @@
 
 ### 安装依赖
 
-`sudo apt install libunistring-dev libaom-dev libdav1d-dev`
+```
+sudo apt install libunistring-dev libaom-dev libdav1d-dev libsdl2{,-image,-mixer,-ttf,-gfx}-dev
+```
 
 
 ### 编译安装
 
 ```
-./configure --prefix=/home/clyde/builds/ffmpeg --enable-gpl --enable-nonfree --enable-libfdk-aac --enable-libx264 --enable-libx265 --enable-filter=delogo --enable-debug --disable-optimizations --enable-libspeex  --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --cc=gcc --host-cflags= --host-ldflags= --disable-x86asm
+./configure --prefix=/home/clyde/builds/ffmpeg --enable-sdl --enable-gpl --enable-nonfree --enable-libfdk-aac --enable-libx264 --enable-libx265 --enable-filter=delogo --enable-debug --disable-optimizations --enable-libspeex  --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --cc=gcc --host-cflags= --host-ldflags= --disable-x86asm
 make -j2 
 make install
 ```
