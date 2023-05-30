@@ -1,0 +1,12 @@
+version: '3'
+services:
+  meilisearch:
+    image: getmeili/meilisearch:v1.1
+    restart: always
+    ports:
+      - "7700:7700"
+    volumes:
+      - ./meili_data:/meili_data  
+    environment:
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
+      - MEILI_LOG_LEVEL=WARN
