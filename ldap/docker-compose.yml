@@ -1,0 +1,30 @@
+version: '2'
+services:
+  ldapui:
+    image: osixia/phpldapadmin:0.9.0
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: ldap.ex.com
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    links:
+      - ldap:ldap.ex.com
+    ports:
+      - 6443:443/tcp
+  ldap:
+    image: osixia/openldap:1.5.0
+    environment:
+      LDAP_ADMIN_PASSWORD: admin
+      LDAP_DOMAIN: ex.com
+      LDAP_ORGANISATION: Clyde
+      LDAP_TLS: 'false'
+      LDAP_READONLY_USER: 'true'
+      LDAP_READONLY_USER_USERNAME: clyde
+      LDAP_READONLY_USER_PASSWORD: clyde
+    stdin_open: true
+    tty: true
+    ports:
+      - 389:389/tcp
+      - 636:636/tcp
+    volumes:
+      - ./data/ldap/files:/var/lib/ldap
+      - ./data/ldap/conf:/etc/ldap/slapd.d
