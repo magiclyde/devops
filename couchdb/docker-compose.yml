@@ -1,0 +1,16 @@
+# https://docs.couchdb.org/en/stable/install/docker.html
+# IP:5984/_utils
+version: '3.6'
+services:
+  couchdb:
+    image: couchdb:3
+    container_name: couchdb
+    restart: always
+    ports:
+      - "5984:5984"
+    volumes:
+      - /data/couchdb/data:/opt/couchdb/data
+    environment:
+      COUCHDB_USER: ${COUCHDB_USER-admin}
+      COUCHDB_PASSWORD: ${COUCHDB_PASSWORD-cou53}
+      
