@@ -1,0 +1,22 @@
+services:
+  rustfs:
+    image: rustfs/rustfs:1.0.0-alpha.98
+    container_name: rustfs
+    user: "1000:1000" # 替换为你实际的 UID 和 GID (可以通过 id 命令查看)
+    ports:
+      - "127.0.0.1:9800:9000"
+      - "127.0.0.1:9801:9001"
+    volumes:
+      - /data:/data
+    networks:
+      - app-net
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    environment: 
+      - RUSTFS_ACCESS_KEY=your_username
+      - RUSTFS_SECRET_KEY=your_pass
+
+networks:
+  app-net:
+    external: true
