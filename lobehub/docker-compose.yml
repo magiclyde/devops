@@ -1,0 +1,18 @@
+services:
+  lobehub:
+    image: lobehub/lobehub:2.1.52
+    container_name: lobehub
+    ports:
+      - "3210:3210"
+    env_file:
+      - lobehub.env
+    networks:
+      - app-net
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "s3.local:host-gateway"
+    restart: unless-stopped
+
+networks:
+  app-net:
+    external: true
